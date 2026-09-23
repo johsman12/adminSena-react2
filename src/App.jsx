@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
+import Login from './pages/Login'; // <-- ¡IMPORTANTE: Importar la página de Login!
 
 // Aprendices
 import AprendicesList from './pages/AprendicesList';
@@ -18,9 +19,16 @@ import InstructorCreate from './pages/InstructorCreate';
 import AmbientesList from './pages/AmbientesList';
 import AmbienteCreate from './pages/AmbienteCreate';
 
-// Computadores y Centros (Agregados para solucionar las páginas en blanco)
+// Computadores y Centros
 import Computadores from './pages/Computadores';
+import ComputadorCreate from './pages/ComputadorCreate'; 
 import Centros from './pages/Centros';
+import CentroCreate from './pages/CentroCreate';        
+
+// Páginas del Footer / Enlaces adicionales
+import QuienesSomos from './pages/QuienesSomos';
+import Soporte from './pages/Soporte';
+import Terminos from './pages/Terminos';
 
 export default function App() {
     return (
@@ -28,6 +36,9 @@ export default function App() {
             <Routes>
                 {/* Ruta Principal */}
                 <Route path="/" element={<Home />} />
+
+                {/* Ruta de Login (¡Añadida aquí para que no de error!) */}
+                <Route path="/login" element={<Login />} />
 
                 {/* Rutas de Aprendices */}
                 <Route path="/aprendices" element={<AprendicesList />} />
@@ -47,7 +58,14 @@ export default function App() {
 
                 {/* Rutas de Computadores y Centros */}
                 <Route path="/computadores" element={<Computadores />} />
+                <Route path="/computadores/create" element={<ComputadorCreate />} /> 
                 <Route path="/centros" element={<Centros />} />
+                <Route path="/centros/create" element={<CentroCreate />} />        
+
+                {/* Nuevas Rutas añadidas para el Footer */}
+                <Route path="/quienes-somos" element={<QuienesSomos />} />
+                <Route path="/soporte" element={<Soporte />} />
+                <Route path="/terminos" element={<Terminos />} />
             </Routes>
         </Router>
     );

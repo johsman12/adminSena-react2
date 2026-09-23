@@ -1,19 +1,36 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom'; // 1. Importar useNavigate
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 export default function CentroCreate() {
+    const navigate = useNavigate(); // 2. Inicializar el hook de navegación
     const [codigo, setCodigo] = useState('');
     const [nombre, setNombre] = useState('');
     const [regional, setRegional] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        // 3. Obtener centros existentes de localStorage (o arreglo vacío)
+        const centrosGuardados = JSON.parse(localStorage.getItem('admin_sena_centros')) || [];
+
+        // 4. Crear el nuevo objeto centro
+        const nuevoCentro = {
+            id: centrosGuardados.length > 0 ? centrosGuardados[centrosGuardados.length - 1].id + 1 : 1,
+            codigo,
+            nombre,
+            regional // O 'ciudad' dependiendo de cómo lo muestres en Centros.jsx
+        };
+
+        // 5. Guardar el arreglo actualizado en localStorage
+        centrosGuardados.push(nuevoCentro);
+        localStorage.setItem('admin_sena_centros', JSON.stringify(centrosGuardados));
+
         alert(`¡Centro "${nombre}" registrado con éxito!`);
-        setCodigo('');
-        setNombre('');
-        setRegional('');
+        
+        // 6. Redirigir de regreso a la lista de centros
+        navigate('/centros');
     };
 
     return (

@@ -1,36 +1,56 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import Sidebar from '../components/Sidebar';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 export default function QuienesSomos() {
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', backgroundColor: '#f4f6f8' }}>
-            <Navbar />
-            <main style={{ flex: 1, padding: '3rem 2rem', maxWidth: '900px', margin: '0 auto', width: '100%' }}>
-                <div style={{ background: '#fff', padding: '2.5rem', borderRadius: '8px', boxShadow: '0 4px 6px rgba(0,0,0,0.05)' }}>
-                    <h2 style={{ color: '#2d8600', marginBottom: '1rem' }}>Nuestra Institución</h2>
-                    <p style={{ color: '#475569', lineHeight: '1.6', marginBottom: '2rem' }}>
-                        El Servicio Nacional de Aprendizaje (SENA) se encarga de cumplir la función que le corresponde al Estado de invertir en el desarrollo social y técnico de los trabajadores colombianos, ofreciendo y ejecutando la formación profesional integral.
-                    </p>
+        <div className="d-flex min-vh-100 bg-light w-100 m-0 p-0 overflow-hidden position-relative">
+            {/* Sidebar */}
+            <Sidebar />
 
-                    <h3 style={{ color: '#2d8600', marginBottom: '1rem' }}>Sobre AdminSENA</h3>
-                    <p style={{ color: '#475569', lineHeight: '1.6', marginBottom: '2rem' }}>
-                        AdminSENA es un sistema de gestión académica y administrativa desarrollado para optimizar el control de áreas, centros de formación, equipos de cómputo, cursos, instructores y aprendices.
-                    </p>
+            {/* Contenedor principal */}
+            <div className="flex-grow-1 d-flex flex-column min-vw-0">
+                <Navbar />
 
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
-                        <div style={{ background: '#f8fafc', padding: '1.5rem', borderRadius: '6px', borderLeft: '4px solid #39A900' }}>
-                            <h4 style={{ color: '#1e293b', marginBottom: '0.5rem' }}>Misión</h4>
-                            <p style={{ color: '#64748b', fontSize: '0.95rem' }}>Brindar formación profesional integral incorporando nuevas tecnologías para el desarrollo productivo del país.</p>
+                <main className="p-4 flex-grow-1 w-100" style={{ maxWidth: '100%' }}>
+                    <div className="card shadow-sm border-0 rounded-3 p-4 bg-white">
+                        <div className="border-bottom pb-3 mb-4">
+                            <span className="badge bg-success mb-1">Información Institucional</span>
+                            <h2 className="fw-bold text-dark">¿Quiénes Somos?</h2>
                         </div>
-                        <div style={{ background: '#f8fafc', padding: '1.5rem', borderRadius: '6px', borderLeft: '4px solid #39A900' }}>
-                            <h4 style={{ color: '#1e293b', marginBottom: '0.5rem' }}>Visión</h4>
-                            <p style={{ color: '#64748b', fontSize: '0.95rem' }}>Consolidarnos como una entidad líder en educación, impulsando la innovación tecnológica y el talento humano.</p>
+
+                        <div className="row g-4">
+                            <div className="col-md-6">
+                                <div className="p-4 rounded bg-light border-start border-4 border-success h-100 shadow-sm">
+                                    <h4 className="fw-bold text-success mb-3">Misión</h4>
+                                    <p className="text-dark mb-0" style={{ lineHeight: '1.6' }}>
+                                        El Servicio Nacional de Aprendizaje (SENA) se encarga de cumplir la función que le corresponde al estado de invertir en el desarrollo social y técnico de los trabajadores colombianos, ofreciendo y ejecutando la formación profesional integral para la incorporación y desarrollo de las personas en actividades productivas que contribuyan al desarrollo social, económico y tecnológico del país.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div className="col-md-6">
+                                <div className="p-4 rounded bg-light border-start border-4 border-success h-100 shadow-sm">
+                                    <h4 className="fw-bold text-success mb-3">Visión</h4>
+                                    <p className="text-dark mb-0" style={{ lineHeight: '1.6' }}>
+                                        Consolidarnos como una entidad líder en educación, impulsando la innovación tecnológica y el talento humano para el desarrollo productivo del país.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="mt-4 pt-3">
+                            <Link to="/" className="btn btn-success px-4 fw-semibold">
+                                <i className="fas fa-arrow-left me-2"></i> Volver al Inicio
+                            </Link>
                         </div>
                     </div>
-                </div>
-            </main>
-            <Footer />
+                </main>
+
+                <Footer />
+            </div>
         </div>
     );
 }

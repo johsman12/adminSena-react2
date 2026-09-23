@@ -83,12 +83,12 @@ export default function Navbar() {
                                 overflow: 'hidden',
                                 zIndex: 10
                             }}>
-                                <a href="/login?role=aprendiz" style={{ color: '#333', padding: '12px 16px', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '10px', fontSize: '0.9rem' }}>
+                                <Link to="/login?role=aprendiz" onClick={() => setDropdownOpen(false)} style={{ color: '#333', padding: '12px 16px', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '10px', fontSize: '0.9rem' }}>
                                     <i className="fas fa-user-graduate" style={{ color: '#39A900' }}></i> Como Aprendiz
-                                </a>
-                                <a href="/login?role=administrador" style={{ color: '#333', padding: '12px 16px', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '10px', fontSize: '0.9rem' }}>
+                                </Link>
+                                <Link to="/login?role=administrador" onClick={() => setDropdownOpen(false)} style={{ color: '#333', padding: '12px 16px', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '10px', fontSize: '0.9rem' }}>
                                     <i className="fas fa-user-shield" style={{ color: '#39A900' }}></i> Como Administrador
-                                </a>
+                                </Link>
                             </div>
                         )}
                     </div>
